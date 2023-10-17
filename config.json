@@ -1,0 +1,18 @@
+{
+  "development": {
+    "host": "fitsol-rds.chwdw1rgdk8q.ap-south-1.rds.amazonaws.com",
+    "port": 3306,
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": "Amazon RDS"
+    },
+    "pool": {
+      "max": 50,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000,
+      "evict": 10000
+    },
+    "language": "en"
+  }
+}

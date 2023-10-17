@@ -1,0 +1,22 @@
+{
+  "name": "test-models",
+  "version": "1.0.0",
+  "description": "",
+  "main": "db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirtantst1801/test-modules.git"
+  },
+  "keywords": [
+    "test-modules"
+  ],
+  "author": "kirtan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirtantst1801/test-modules/issues"
+  },
+  "homepage": "https://github.com/kirtantst1801/test-modules#readme"
+}
