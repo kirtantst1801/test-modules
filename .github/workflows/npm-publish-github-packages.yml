@@ -1,4 +1,4 @@
-name: Node.js Package Publish
+name: Node.js Package
 
 on:
   push:
@@ -6,20 +6,29 @@ on:
       - main
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: npm ci
+      - run: npm test
 
-      - name: Authenticate with npm registry
-        run: echo "//npm.pkg.github.com/:_authToken=${{secrets.NODE_AUTH_TOKEN}}" >> ~/.npmrc
-
-      - name: Publish package
-        run: npm publish
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
