@@ -19,10 +19,7 @@ jobs:
           node-version: 16
 
       - name: Authenticate with npm registry
-        run: npm login --registry ${{ secrets.NPM_REGISTRY }} --scope=kirtantst1801 --always-auth
-
-      - name: Install dependencies
-        run: npm ci
+        run: echo "//npm.pkg.github.com/:_authToken=${{secrets.NODE_AUTH_TOKEN}}" >> ~/.npmrc
 
       - name: Publish package
         run: npm publish
