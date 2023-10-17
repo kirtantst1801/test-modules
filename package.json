@@ -1,6 +1,6 @@
 {
   "name": "test-models",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "db.js",
   "scripts": {
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kirtantst1801/test-modules.git"
+  },
+  "publishConfig": {
+    "@kirtantst1801:registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "test-modules"
